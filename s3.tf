@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "backend" {
-  bucket = "adonk-s3v2"
+  bucket = "spicegirlsparadise-s3v2"
 }
 
 resource "aws_s3_bucket_versioning" "backend" {
