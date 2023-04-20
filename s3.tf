@@ -34,10 +34,10 @@ data "aws_iam_policy_document" "backend" {
   }
 }
 
-resource "aws_s3_bucket_policy" "backend" {
-  bucket = aws_s3_bucket.backend.id
-  policy = data.aws_iam_policy_document.backend.json
-}
+#resource "aws_s3_bucket_policy" "backend" {
+  #bucket = aws_s3_bucket.backend.id
+  #policy = data.aws_iam_policy_document.backend.json
+#}
 
 resource "aws_kms_key" "backend" {
   description             = "This key is used to encrypt bucket objects"

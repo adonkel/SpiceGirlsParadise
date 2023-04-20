@@ -7,6 +7,10 @@ resource "aws_instance" "main" {
   tags = {
     "Name" = "${var.default_tags.env}-EC2"
   }
+   #This is to force metadata v2, which mitigates role credential leakage in the event of a SSRF
+	#metadata_options {
+		#http_tokens = "enabled"
+	#}
   user_data = base64encode(file("C:/Users/adonk/OneDrive/Desktop/Terraform/user.sh"))
 }
 output "ec2_ssh_command" {
