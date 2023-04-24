@@ -21,6 +21,19 @@ sudo mkdir -p /srv/www
 sudo chown www-data: /srv/www
 curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www
 curl -o /etc/apache2/sites-available/wordpress.conf https://github.com/adonkel/wordpress/blob/648b6600e22c7917bf6954398b748c515238457c/wordpress.conf
+echo "<VirtualHost *:80>
+    DocumentRoot /srv/www/wordpress
+    <Directory /srv/www/wordpress>
+        Options FollowSymLinks
+        AllowOverride Limit Options FileInfo
+        DirectoryIndex index.php
+        Require all granted
+    </Directory>
+    <Directory /srv/www/wordpress/wp-content>
+        Options FollowSymLinks
+        Require all granted
+    </Directory>
+</VirtualHost>" | sudo tee /etc/apache2/sites-available/wordpress.conf > /dev/null
 sudo a2ensite wordpress
 sudo a2enmod rewrite
 sudo a2dissite 000-default
