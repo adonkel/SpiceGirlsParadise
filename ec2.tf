@@ -7,11 +7,11 @@ resource "aws_instance" "main" {
   tags = {
     "Name" = "${var.default_tags.env}-EC2"
   }
-   #This is to force metadata v2, which mitigates role credential leakage in the event of a SSRF
+   # This is to force metadata v2, which mitigates role credential leakage in the event of a SSRF
 	#metadata_options {
 		#http_tokens = "enabled"
 	#}
-  user_data = base64encode(file("C:/Users/adonk/OneDrive/Desktop/Terraform/user.sh"))
+  user_data = base64encode(file("C:\\Users\\alexa\\OneDrive\\Desktop\\spicegirls\\SpiceGirlsParadise\\user.sh"))
 }
 output "ec2_ssh_command" {
   value = "ssh -i SpiceGirlsParadise.pem ubuntu@ec2-${replace(aws_instance.main.public_ip, ".", "-")}.compute-1.amazonaws.com"

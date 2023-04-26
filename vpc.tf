@@ -5,8 +5,8 @@ terraform {
       version = "4.60.0"
     }
   }
-  backend "s3" {
-    bucket = "adonk-s3"
+    backend "s3" {
+    bucket = "spicegirlsparadise-s3v2"
     key = "terraform.tfstate"
     region = "us-east-1"
   }
