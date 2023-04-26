@@ -6,7 +6,7 @@ terraform {
     }
   }
     backend "s3" {
-    bucket = "spicegirlsparadise-s3v2"
+    bucket = "spicegirls-tf-state"
     key = "terraform.tfstate"
     region = "us-east-1"
   }
