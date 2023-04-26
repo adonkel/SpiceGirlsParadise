@@ -11,8 +11,9 @@ resource "aws_instance" "main" {
 	#metadata_options {
 		#http_tokens = "enabled"
 	#}
-  user_data = base64encode(file("C:\\Users\\alexa\\OneDrive\\Desktop\\spicegirls\\SpiceGirlsParadise\\user.sh"))
+  user_data = base64encode(file("C:/Users/alexa/OneDrive/Desktop/spicegirls/SpiceGirlsParadise/user.sh"))
 }
 output "ec2_ssh_command" {
   value = "ssh -i SpiceGirlsParadise.pem ubuntu@ec2-${replace(aws_instance.main.public_ip, ".", "-")}.compute-1.amazonaws.com"
 }
+
