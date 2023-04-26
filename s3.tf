@@ -55,18 +55,16 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "backend" {
   # }
 }
 
-resource "aws_s3_bucket" "log_bucket" {
-  bucket = "spicegirlsparadise-s3v2"
-}
 
-resource "aws_s3_bucket_acl" "log_bucket_acl" {
-  bucket = aws_s3_bucket.log_bucket.id
-  acl    = "log-delivery-write"
-}
 
-resource "aws_s3_bucket_logging" "backend" {
-   bucket = aws_s3_bucket.backend.id
+# resource "aws_s3_bucket_acl" "log_bucket_acl" {
+#   bucket = aws_s3_bucket.backend.id
+#   acl    = "log-delivery-write"
+# }
 
-  target_bucket = aws_s3_bucket.log_bucket.id
-  target_prefix = "log/"
-}
+# resource "aws_s3_bucket_logging" "backend" {
+#    bucket = aws_s3_bucket.backend.id
+
+#   target_bucket = aws_s3_bucket.backend.id
+#   target_prefix = "log/"
+#}
