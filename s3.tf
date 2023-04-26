@@ -44,8 +44,8 @@ resource "aws_s3_bucket_policy" "backend" {
 #   deletion_window_in_days = 16
 # }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "backend" {
-   bucket = aws_s3_bucket.backend.id
+# resource "aws_s3_bucket_server_side_encryption_configuration" "backend" {
+#    bucket = aws_s3_bucket.backend.id
 
   # rule {
   #   apply_server_side_encryption_by_default {
@@ -53,7 +53,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "backend" {
   #     sse_algorithm     = "aws:kms"
   #   }
   # }
-}
+#}
 
 
 
