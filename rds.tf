@@ -42,9 +42,9 @@ resource "aws_rds_cluster_instance" "db" {
   engine_version = aws_rds_cluster.db.engine_version
   db_subnet_group_name = aws_db_subnet_group.db.name
 }
-output "db_endpoints" {
-    value = {
-        writer = aws_rds_cluster.db.endpoint
-        reader = aws_rds_cluster.db.reader_endpoint
-    }
-}
+# output "db_endpoints" {
+#     value = {
+#         writer = aws_rds_cluster.db.endpoint
+#         reader = aws_rds_cluster.db.reader_endpoint
+#     }
+#}
