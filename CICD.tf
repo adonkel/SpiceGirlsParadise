@@ -19,5 +19,5 @@ resource "aws_iam_role" "test_role" {
 
   tags = {
     tag-key = "tag-value"
-
   }
+}
