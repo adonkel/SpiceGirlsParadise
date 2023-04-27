@@ -39,10 +39,10 @@ resource "aws_s3_bucket_versioning" "backend" {
 #   policy = data.aws_iam_policy_document.backend.json
 #}
 
-resource "aws_kms_key" "backend" {
-  description             = "This key is used to encrypt bucket objects"
-  deletion_window_in_days = 16
-}
+# resource "aws_kms_key" "backend" {
+#   description             = "This key is used to encrypt bucket objects"
+#   deletion_window_in_days = 16
+# }
 
 # resource "aws_s3_bucket_server_side_encryption_configuration" "backend" {
 #    bucket = aws_s3_bucket.backend.id
