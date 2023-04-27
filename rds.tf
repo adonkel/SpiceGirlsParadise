@@ -21,7 +21,7 @@ resource "aws_rds_cluster" "db" {
   cluster_identifier = "${var.default_tags.env}-cluster"
   db_subnet_group_name = aws_db_subnet_group.db.name
   engine = "aurora-mysql"
-  availability_zones = "${element(var.availability_zones, count.index % length(var.availability_zones))}"
+  availability_zones = data.aws_availability_zones.availability_zone.names[count.index]
   engine_version = "5.7.mysql_aurora.2.11.1"
   database_name = "addb"
   vpc_security_group_ids = [module.db_sg.sg_id]
